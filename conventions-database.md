@@ -55,6 +55,13 @@ SQLite3 is a lightweight, file-based database system that is well-suited for sma
     - SQLite3 uses dynamic typing, so be mindful of data types and ensure consistency in how data is stored and retrieved.
     - Use `INTEGER PRIMARY KEY` for auto-incrementing primary keys, which is optimized in SQLite3.
 
+- **Date and Time Handling**:
+    - SQLite3 does not have a dedicated `DATE` or `TIME` data type. Instead, it stores date and time values as `TEXT`, `REAL`, or `INTEGER`.
+    - Use the `TEXT` format (ISO 8601 strings) for storing date and time, e.g., `YYYY-MM-DD HH:MM:SS.SSS`.
+    - Alternatively, use `REAL` for Julian day numbers or `INTEGER` for Unix timestamps (seconds since 1970-01-01 00:00:00 UTC).
+    - Use SQLite3's built-in date and time functions, such as `date()`, `time()`, `datetime()`, `julianday()`, and `strftime()`, to manipulate and format date and time values.
+    - Be consistent in the format you choose to store date and time values to avoid confusion and ensure compatibility with application logic.
+
 - **Performance**:
     - Analyze query performance regularly and adjust indexes and queries as needed to maintain optimal performance.
     - Regularly run the `VACUUM` command to reclaim unused space and optimize the database file.
