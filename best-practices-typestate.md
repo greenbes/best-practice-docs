@@ -1,11 +1,11 @@
 # Best Practices for Using the Typestate Pattern in TypeScript
 
-Here are some best practices for using the **typestate pattern** in TypeScript, focusing on catching errors at compile time:
+The typestate pattern is a design pattern that uses the type system to enforce state-specific behavior in your code. It helps catch errors at compile time by ensuring that only valid operations are performed on objects in specific states. Here are some best practices for using the **typestate pattern** in TypeScript, focusing on catching errors at compile time:
 
 ---
 
 ### 1. **Define Clear States and Transitions**
-   - Use **enums** or **literal types** to represent distinct states.
+   - Use **enums** or **literal types** to represent distinct states, which improves readability and maintainability.
    - Define allowed transitions between states explicitly.
    - Example:
      ```typescript
@@ -21,7 +21,7 @@ Here are some best practices for using the **typestate pattern** in TypeScript, 
 ---
 
 ### 2. **Use Discriminated Unions for State-Specific Data**
-   - Use **discriminated unions** to associate state-specific data with each state.
+   - Use **discriminated unions** to associate state-specific data with each state. Discriminated unions are a TypeScript feature that allows you to create a union of types with a common property, ensuring that invalid data cannot be accessed in the wrong state.
    - This ensures that invalid data cannot be accessed in the wrong state.
    - Example:
      ```typescript
@@ -35,7 +35,7 @@ Here are some best practices for using the **typestate pattern** in TypeScript, 
 ---
 
 ### 3. **Enforce State Transitions with Functions**
-   - Create functions that enforce valid state transitions.
+   - Create functions that enforce valid state transitions, preventing runtime errors. Use TypeScript's **type guards** or **narrowing** to ensure only valid transitions are allowed.
    - Use **type guards** or **narrowing** to ensure only valid transitions are allowed.
    - Example:
      ```typescript
@@ -50,7 +50,7 @@ Here are some best practices for using the **typestate pattern** in TypeScript, 
 ---
 
 ### 4. **Leverage TypeScript's Type System**
-   - Use **generics** or **conditional types** to enforce state-specific behavior.
+   - Use **generics** or **conditional types** to enforce state-specific behavior. For example, conditional types can restrict operations based on the current state.
    - Example:
      ```typescript
      function approveDocument(doc: Submitted): Approved {
@@ -64,7 +64,7 @@ Here are some best practices for using the **typestate pattern** in TypeScript, 
 ---
 
 ### 5. **Catch Errors at Compile Time**
-   - Use **strict type checking** to catch invalid state transitions or operations.
+   - Use **strict type checking** to catch invalid state transitions or operations. Enable strict mode in TypeScript for better error detection.
    - Example:
      ```typescript
      const draft: Draft = { state: "Draft", content: "..." };
@@ -74,7 +74,7 @@ Here are some best practices for using the **typestate pattern** in TypeScript, 
 ---
 
 ### 6. **Use Immutability**
-   - Ensure state transitions create new objects rather than mutating existing ones.
+   - Ensure state transitions create new objects rather than mutating existing ones. This prevents accidental state changes and makes debugging easier. Consider using immutable data structures or libraries.
    - This prevents accidental state changes and makes debugging easier.
    - Example:
      ```typescript
@@ -84,7 +84,7 @@ Here are some best practices for using the **typestate pattern** in TypeScript, 
 ---
 
 ### 7. **Document State Transitions**
-   - Clearly document allowed transitions and state-specific behavior in comments or documentation.
+   - Clearly document allowed transitions and state-specific behavior in comments or documentation. Use tools or plugins that generate documentation from code comments to improve code readability and maintainability.
    - Example:
      ```typescript
      /**
@@ -97,7 +97,7 @@ Here are some best practices for using the **typestate pattern** in TypeScript, 
 ---
 
 ### 8. **Test State Transitions**
-   - Write unit tests to verify that state transitions work as expected.
+   - Write unit tests to verify that state transitions work as expected. Use TypeScript's type system to catch errors in tests. For example, test that a function correctly transitions a document from "Draft" to "Submitted".
    - Use TypeScript's type system to catch errors in tests.
 
 ---
