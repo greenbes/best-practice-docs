@@ -54,7 +54,7 @@ src/
 ### Testing
 - Implement proper unit testing with Jest
 - Use React Testing Library for component testing
-- Implement E2E testing with Cypress or Playwright
+- Implement E2E testing with Playwright
 - Maintain proper test coverage
 - Use proper test data factories
 - Implement proper mock strategies
@@ -116,7 +116,7 @@ src/
 ## API Design
 
 ### Structure
-- Use proper REST or GraphQL conventions
+- Use proper REST conventions
 - Implement proper validation
 - Maintain proper documentation
 - Use proper versioning
@@ -148,16 +148,6 @@ src/
 - Use proper CDN configuration
 - Implement proper database management
 - Use proper caching strategies
-
-## SEO & Analytics
-
-### Optimization
-- Implement proper meta tags
-- Use proper canonical URLs
-- Maintain proper sitemap
-- Implement proper structured data
-- Use proper OpenGraph tags
-- Implement proper analytics tracking
 
 ## Development Workflow
 
