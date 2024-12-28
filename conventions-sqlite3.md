@@ -1,4 +1,4 @@
-# Database Conventions
+# Sqlite3 Database Conventions
 
 This document outlines the conventions used for database design and management within the project. Adhering to these conventions ensures consistency, maintainability, and clarity across the database schema and related operations. These guidelines are crucial for facilitating collaboration among developers and ensuring the database can scale and adapt to future requirements.
 
