@@ -172,9 +172,16 @@ project_name/
 └── docs/
 ```
 
-## Tools and Linting
+## Separation of Concerns
 
-### Recommended Tools
+### Principles
+- **Modularity**: Break down the code into distinct modules or components, each responsible for a specific part of the functionality.
+- **Encapsulation**: Each module should encapsulate its data and behavior, exposing only what is necessary through well-defined interfaces.
+- **Single Responsibility Principle**: Each class or function should have one reason to change, meaning it should only have one job or responsibility.
+- **Layered Architecture**: Use a layered approach where each layer has a specific role, such as presentation, application, and data layers.
+- **Use of Design Patterns**: Implement design patterns like MVC (Model-View-Controller) or MVVM (Model-View-ViewModel) to enforce separation of concerns.
+- **Testing**: Separation of concerns facilitates testing by allowing you to test each part of the application independently.
+- **Maintainability and Scalability**: By separating concerns, the codebase becomes easier to maintain and extend.
 - Use type checking with mypy
 - Format code with black
 - Check style with flake8
