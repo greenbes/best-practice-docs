@@ -80,20 +80,48 @@ def calculate_average(numbers: list[float]) -> float:
 - Implement special methods as needed (`__str__`, `__repr__`, etc.)
 
 ```python
-class Person:
+from pydantic import BaseModel
+
+class Person(BaseModel):
     """Represents a person with basic attributes."""
     
-    def __init__(self, name: str, age: int):
-        self._name = name
-        self._age = age
-    
-    @property
-    def name(self) -> str:
-        return self._name
-    
+    name: str
+    age: int
+
     def __str__(self) -> str:
-        return f"{self.name} ({self._age})"
+        return f"{self.name} ({self.age})"
 ```
+
+## Using Pydantic for Data Validation
+
+Pydantic is a library for data validation and settings management using Python type annotations. It provides a way to define data models with built-in validation.
+
+#### Benefits of Pydantic
+- Automatic data validation and parsing
+- Type-safe data models
+- Easy integration with FastAPI and other frameworks
+
+#### Example Usage
+
+```python
+from pydantic import BaseModel, ValidationError
+
+class User(BaseModel):
+    username: str
+    email: str
+    age: int
+
+try:
+    user = User(username='john_doe', email='john@example.com', age='25')
+except ValidationError as e:
+    print(e.json())
+```
+
+#### Integration with Existing Code
+
+- Replace traditional class definitions with Pydantic models for data validation.
+- Use Pydantic's `BaseModel` to define data structures with type annotations.
+- Leverage Pydantic's validation features to ensure data integrity.
 
 ## Error Handling
 
