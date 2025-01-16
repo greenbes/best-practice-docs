@@ -1,6 +1,25 @@
 # Express.js best practices and conventions
 
-1. Project Structure and Organization
+## General Guidelines
+
+    - Use async/await consistently instead of mixing with callbacks
+    - Generate swagger documentation for the API
+    - Implement request validation using libraries like Joi or express-validator
+    - Use TypeScript for better type safety and developer experience
+    - Implement rate limiting for API endpoints
+    - Use compression middleware for response optimization
+    - Implement proper CORS policies
+    - Create a robust service layer to handle business logic
+    - Use dependency injection for better testing and modularity
+    - Implement proper API versioning strategy
+    - Use HTTP status codes consistently
+    - Implement request ID tracking for better debugging
+    - Use proper security headers (via helmet)
+    - Implement proper authentication and authorization middleware
+    - Use environment-specific configuration files
+
+## Project Structure and Organization
+
 ```
 project/
   ├── src/
@@ -16,7 +35,8 @@ project/
   └── app.js            # Application entry point
 ```
 
-2. Middleware Organization
+## Middleware Organization
+
 ```javascript
 // app.js
 const express = require('express');
@@ -37,7 +57,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api', authMiddleware);
 ```
 
-3. Route Organization
+## Route Organization
 ```javascript
 // routes/users.js
 const express = require('express');
@@ -50,7 +70,8 @@ router.post('/', UserController.createUser);
 module.exports = router;
 ```
 
-4. Error Handling
+## Error Handling
+
 ```javascript
 // middleware/errorHandler.js
 const errorHandler = (err, req, res, next) => {
@@ -78,7 +99,8 @@ const errorHandler = (err, req, res, next) => {
 app.use(errorHandler);
 ```
 
-5. Environment Configuration
+## Environment Configuration
+
 ```javascript
 // config/config.js
 require('dotenv').config();
@@ -97,7 +119,8 @@ module.exports = {
 };
 ```
 
-6. Controller Structure
+## Controller Structure
+
 ```javascript
 // controllers/UserController.js
 class UserController {
@@ -114,7 +137,8 @@ class UserController {
 module.exports = UserController;
 ```
 
-7. Testing Setup
+## Testing Setup
+
 ```javascript
 // tests/integration/users.test.js
 const request = require('supertest');
@@ -137,7 +161,8 @@ describe('User API', () => {
 });
 ```
 
-8. Logging Strategy
+## Logging Strategy
+
 ```javascript
 // utils/logger.js
 const winston = require('winston');
@@ -154,22 +179,4 @@ const logger = winston.createLogger({
   ]
 });
 ```
-
-Additional Best Practices:
-
-- Use async/await consistently instead of mixing with callbacks
-- Generate swagger documentation for the API
-- Implement request validation using libraries like Joi or express-validator
-- Use TypeScript for better type safety and developer experience
-- Implement rate limiting for API endpoints
-- Use compression middleware for response optimization
-- Implement proper CORS policies
-- Create a robust service layer to handle business logic
-- Use dependency injection for better testing and modularity
-- Implement proper API versioning strategy
-- Use HTTP status codes consistently
-- Implement request ID tracking for better debugging
-- Use proper security headers (via helmet)
-- Implement proper authentication and authorization middleware
-- Use environment-specific configuration files
 
