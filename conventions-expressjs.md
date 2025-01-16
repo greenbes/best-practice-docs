@@ -177,32 +177,105 @@ module.exports = router;
 
 ## Error Handling
 
-```javascript
-// middleware/errorHandler.js
-const errorHandler = (err, req, res, next) => {
-  const status = err.status || 500;
-  const message = err.message || 'Internal Server Error';
-  
-  // Structured error logging
-  logger.error({
-    status,
-    message,
-    stack: err.stack,
-    requestId: req.id
-  });
+1. **Centralized Error Handling Middleware**: Create a centralized error handling middleware to manage all errors in one place. This allows you to format and log errors consistently.
 
-  res.status(status).json({
-    error: {
-      message,
-      status,
-      requestId: req.id
-    }
-  });
-};
+   ```javascript
+   // middleware/errorHandler.js
+   const errorHandler = (err, req, res, next) => {
+     const status = err.status || 500;
+     const message = err.message || 'Internal Server Error';
+     
+     // Log the error details
+     console.error(`Error: ${message}, Status Code: ${status}, Stack: ${err.stack}`);
 
-// app.js
-app.use(errorHandler);
-```
+     res.status(status).json({
+       error: {
+         message,
+         status,
+         requestId: req.id // Assuming request ID is set in middleware
+       }
+     });
+   };
+
+   module.exports = errorHandler;
+   ```
+
+2. **Use Custom Error Classes**: Define custom error classes to represent different types of errors. This makes it easier to identify and handle specific errors.
+
+   ```javascript
+   // utils/errors.js
+   class AppError extends Error {
+     constructor(message, status) {
+       super(message);
+       this.status = status;
+     }
+   }
+
+   class NotFoundError extends AppError {
+     constructor(message = 'Resource not found') {
+       super(message, 404);
+     }
+   }
+
+   class ValidationError extends AppError {
+     constructor(message = 'Validation failed') {
+       super(message, 400);
+     }
+   }
+
+   module.exports = { AppError, NotFoundError, ValidationError };
+   ```
+
+3. **Expressive Error Messages**: Provide clear and detailed error messages that help developers understand the issue without exposing sensitive information.
+
+4. **Structured Logging**: Use a logging library like Winston to log errors in a structured format, which can be easily parsed and analyzed.
+
+   ```javascript
+   // utils/logger.js
+   const winston = require('winston');
+
+   const logger = winston.createLogger({
+     level: 'error',
+     format: winston.format.combine(
+       winston.format.timestamp(),
+       winston.format.json()
+     ),
+     transports: [
+       new winston.transports.File({ filename: 'logs/error.log' })
+     ]
+   });
+
+   module.exports = logger;
+   ```
+
+5. **Attach Request Context**: Include request-specific information (like request ID, user ID) in error logs to provide context for debugging.
+
+6. **Graceful Error Responses**: Ensure that error responses are user-friendly and do not expose stack traces or sensitive information in production environments.
+
+7. **Use Async/Await with Try/Catch**: Use async/await with try/catch blocks to handle asynchronous errors cleanly.
+
+   ```javascript
+   // controllers/UserController.js
+   const { NotFoundError } = require('../utils/errors');
+
+   class UserController {
+     static async getUserById(req, res, next) {
+       try {
+         const user = await UserService.getUserById(req.params.id);
+         if (!user) {
+           throw new NotFoundError('User not found');
+         }
+         res.json(user);
+       } catch (error) {
+         next(error);
+       }
+     }
+   }
+
+   module.exports = UserController;
+   ```
+
+By following these practices, you can make your exception handling in Express.js more expressive, informative, and easier to manage.
 
 ## Environment Configuration
 
