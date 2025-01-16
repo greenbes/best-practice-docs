@@ -191,40 +191,40 @@ project_name/
 ### Detailed Instructions for Applying Separation of Concerns
 
 1. **Identify Concerns**:
-   - Start by identifying the different concerns or responsibilities in your application. Common concerns include user interface, business logic, data access, and error handling.
-   - Example: In a web application, separate concerns might be handling HTTP requests, processing data, and interacting with a database.
+    - Start by identifying the different concerns or responsibilities in your application. Common concerns include user interface, business logic, data access, and error handling.
+    - Example: In a web application, separate concerns might be handling HTTP requests, processing data, and interacting with a database.
 
 2. **Design Modular Components**:
-   - Break down your application into modules or components, each responsible for a specific concern.
-   - Example: Create separate modules for user authentication, data processing, and reporting.
+    - Break down your application into modules or components, each responsible for a specific concern.
+    - Example: Create separate modules for user authentication, data processing, and reporting.
 
 3. **Encapsulate Functionality**:
-   - Ensure each module encapsulates its functionality and exposes only necessary interfaces. This reduces dependencies and makes the system more flexible.
-   - Example: A data access module should provide methods to query and update the database but hide the underlying database connection details.
+    - Ensure each module encapsulates its functionality and exposes only necessary interfaces. This reduces dependencies and makes the system more flexible.
+    - Example: A data access module should provide methods to query and update the database but hide the underlying database connection details.
 
 4. **Apply the Single Responsibility Principle**:
-   - Design classes and functions to have a single responsibility. This makes them easier to understand, test, and maintain.
-   - Example: A class `UserManager` should handle user-related operations, while a class `EmailService` should handle email sending.
+    - Design classes and functions to have a single responsibility. This makes them easier to understand, test, and maintain.
+    - Example: A class `UserManager` should handle user-related operations, while a class `EmailService` should handle email sending.
 
 5. **Use Layered Architecture**:
-   - Organize your application into layers, such as presentation, business logic, and data access. Each layer should only interact with the layer directly below it.
-   - Example: In a three-tier architecture, the presentation layer handles user input, the business logic layer processes data, and the data access layer interacts with the database.
+    - Organize your application into layers, such as presentation, business logic, and data access. Each layer should only interact with the layer directly below it.
+    - Example: In a three-tier architecture, the presentation layer handles user input, the business logic layer processes data, and the data access layer interacts with the database.
 
 6. **Implement Design Patterns**:
-   - Use design patterns like MVC or MVVM to enforce separation of concerns. These patterns provide a structured way to separate different aspects of the application.
-   - Example: In MVC, the Model handles data, the View handles the user interface, and the Controller manages input and updates the Model.
+    - Use design patterns like MVC or MVVM to enforce separation of concerns. These patterns provide a structured way to separate different aspects of the application.
+    - Example: In MVC, the Model handles data, the View handles the user interface, and the Controller manages input and updates the Model.
 
 7. **Facilitate Testing**:
-   - Design your modules to be independently testable. Write unit tests for each module to ensure it functions correctly in isolation.
-   - Example: Test the data processing module with various input scenarios without requiring the user interface to be complete.
+    - Design your modules to be independently testable. Write unit tests for each module to ensure it functions correctly in isolation.
+    - Example: Test the data processing module with various input scenarios without requiring the user interface to be complete.
 
 8. **Plan for Maintainability and Scalability**:
-   - Design your system to be easily maintainable and scalable. By separating concerns, you can modify or extend one part of the system without affecting others.
-   - Example: If you need to change the database technology, only the data access module should require modification.
+    - Design your system to be easily maintainable and scalable. By separating concerns, you can modify or extend one part of the system without affecting others.
+    - Example: If you need to change the database technology, only the data access module should require modification.
 
 9. **Use Tools and Practices**:
-   - Utilize tools and practices that support separation of concerns, such as dependency injection, interface segregation, and modular programming.
-   - Example: Use dependency injection to decouple components and make them easier to test and replace.
+    - Utilize tools and practices that support separation of concerns, such as dependency injection, interface segregation, and modular programming.
+    - Example: Use dependency injection to decouple components and make them easier to test and replace.
 
 ### Configuration
 Include a `pyproject.toml` file to maintain consistent settings across the project.
