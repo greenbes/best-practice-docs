@@ -1,3 +1,7 @@
+# Introduction to Express.js
+
+Express.js is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. It is known for its simplicity and ease of use, making it a popular choice for building RESTful APIs and web applications. Express.js allows developers to set up middleware to respond to HTTP requests, define routing tables, and integrate with various template engines, making it a versatile tool in the Node.js ecosystem.
+
 # Express.js best practices and conventions
 
 ## General Guidelines
