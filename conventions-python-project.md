@@ -98,10 +98,11 @@ class Person:
 ## Error Handling
 
 ### Best Practices
-- Use try/except blocks to handle specific exceptions
+- Use try/except/finally blocks to handle specific exceptions
 - Avoid bare except clauses
 - Use context managers (with statements) when applicable
 - Raise exceptions early, handle them late
+- Create custom ecxeption classes
 - Include error messages that are helpful for debugging
 
 ```python
