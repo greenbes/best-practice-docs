@@ -39,7 +39,108 @@ project/
   └── app.js            # Application entry point
 ```
 
-## Middleware Organization
+## Separation of Concerns
+
+To implement separation of concerns in an Express.js application, you should organize your code into distinct layers or modules, each responsible for a specific aspect of the application. Here's how you can achieve this:
+
+1. **Controllers**: Handle incoming HTTP requests, interact with services, and send responses back to the client. They should not contain business logic.
+
+   ```javascript
+   // controllers/UserController.js
+   class UserController {
+     static async getUsers(req, res, next) {
+       try {
+         const users = await UserService.getUsers();
+         res.json(users);
+       } catch (error) {
+         next(error);
+       }
+     }
+   }
+
+   module.exports = UserController;
+   ```
+
+2. **Services**: Contain the business logic of the application. They interact with models to perform operations and return data to the controllers.
+
+   ```javascript
+   // services/UserService.js
+   const UserModel = require('../models/UserModel');
+
+   class UserService {
+     static async getUsers() {
+       return UserModel.findAll();
+     }
+   }
+
+   module.exports = UserService;
+   ```
+
+3. **Models**: Define the data structure and interact with the database. They should be responsible for data validation and manipulation.
+
+   ```javascript
+   // models/UserModel.js
+   const { Sequelize, DataTypes } = require('sequelize');
+   const sequelize = require('../config/database');
+
+   const User = sequelize.define('User', {
+     username: {
+       type: DataTypes.STRING,
+       allowNull: false
+     },
+     email: {
+       type: DataTypes.STRING,
+       allowNull: false
+     }
+   });
+
+   module.exports = User;
+   ```
+
+4. **Routes**: Define the endpoints and map them to the appropriate controller methods.
+
+   ```javascript
+   // routes/users.js
+   const express = require('express');
+   const router = express.Router();
+   const UserController = require('../controllers/UserController');
+
+   router.get('/', UserController.getUsers);
+   router.post('/', UserController.createUser);
+
+   module.exports = router;
+   ```
+
+5. **Middleware**: Handle cross-cutting concerns like authentication, logging, error handling, etc.
+
+   ```javascript
+   // middleware/authMiddleware.js
+   const authMiddleware = (req, res, next) => {
+     // Authentication logic
+     next();
+   };
+
+   module.exports = authMiddleware;
+   ```
+
+6. **Configuration**: Manage environment-specific settings and configurations.
+
+   ```javascript
+   // config/config.js
+   require('dotenv').config();
+
+   module.exports = {
+     port: process.env.PORT || 3000,
+     database: {
+       url: process.env.DATABASE_URL,
+       options: {
+         // database specific options
+       }
+     }
+   };
+   ```
+
+By organizing your application in this way, you ensure that each part of your codebase has a single responsibility, making it easier to maintain, test, and scale.
 
 ```javascript
 // app.js
