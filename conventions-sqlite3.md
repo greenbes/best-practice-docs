@@ -66,6 +66,7 @@ SQLite3 is a lightweight, file-based database system that is well-suited for sma
     - Analyze query performance regularly and adjust indexes and queries as needed to maintain optimal performance.
     - Regularly run the `VACUUM` command to reclaim unused space and optimize the database file.
     - Use `PRAGMA` statements to configure database settings, such as `PRAGMA foreign_keys = ON;` to enforce foreign key constraints.
+    - Configure the database to use `Write-Ahead Logging` for improved performance by performing `PRAGMA journal_mode=WAL;`.
 
 - **Concurrency, Transaction, and Error Handling**:
     - Implement robust error handling and logging mechanisms to quickly identify and resolve issues.
