@@ -184,22 +184,6 @@ def test_calculate_average_with_valid_input():
 - Keep the main/master branch stable
 - Review code before merging
 
-## Project Structure
-
-### Recommended Layout
-```
-project_name/
-├── README.md
-├── requirements.txt
-├── setup.py
-├── project_name/
-│   ├── __init__.py
-│   ├── core.py
-│   ├── utils/
-│   └── tests/
-└── docs/
-```
-
 ## Separation of Concerns
 
 ### Principles
