@@ -4,7 +4,7 @@ The typestate pattern is a design pattern that uses the type system to enforce s
 
 ---
 
-### 1. **Define Clear States and Transitions**
+### **Define Clear States and Transitions**
    - Use **enums** or **literal types** to represent distinct states, which improves readability and maintainability.
    - Define allowed transitions between states explicitly.
    - Example:
@@ -17,10 +17,9 @@ The typestate pattern is a design pattern that uses the type system to enforce s
        Rejected: [],
      };
      ```
-
 ---
 
-### 2. **Use Discriminated Unions for State-Specific Data**
+### **Use Discriminated Unions for State-Specific Data**
    - Use **discriminated unions** to associate state-specific data with each state. Discriminated unions are a TypeScript feature that allows you to create a union of types with a common property, ensuring that invalid data cannot be accessed in the wrong state.
    - This ensures that invalid data cannot be accessed in the wrong state.
    - Example:
@@ -31,7 +30,6 @@ The typestate pattern is a design pattern that uses the type system to enforce s
      type Rejected = { state: "Rejected"; reason: string };
      type Document = Draft | Submitted | Approved | Rejected;
      ```
-
 ---
 
 ### 3. **Enforce State Transitions with Functions**
