@@ -49,9 +49,21 @@ While the exact structure can vary, a comprehensive PRD typically includes:
     *   Descriptions of target user types (personas).
     *   Key user stories outlining user needs and desired actions.
 5.  **Functional Requirements:**
-    *   Detailed descriptions of features and functionality (using user stories, use cases, etc.).
-    *   Prioritization of features.
-    *   Error handling requirements.
+    *   This section details *what the system must do*. It describes the specific behaviors, functions, and capabilities of the software.
+    *   **Structure:** It's often helpful to group functional requirements by feature area or module (e.g., User Authentication, Profile Management, Data Upload).
+    *   **Detail:** Each requirement should be specific, unambiguous, and testable. Define inputs, processing steps (at a high level), and expected outputs or system state changes.
+    *   **Methods for Description:** As mentioned in "Describing Functionality", use techniques like:
+        *   **Formal Requirements:** "The system *shall*..." statements (e.g., "The system shall validate email address formats upon user registration.").
+        *   **User Stories with Acceptance Criteria:** Combine user-centric descriptions with clear, testable conditions for completion.
+        *   **Use Cases:** Detail interaction flows for specific tasks.
+    *   **Prioritization:** Clearly indicate the priority of each functional requirement (e.g., using MoSCoW).
+    *   **Error Handling:** Specify how the system should behave in error conditions or edge cases related to the function (e.g., "If the uploaded file format is unsupported, the system shall display error message X.").
+    *   **Examples:**
+        *   **FR-AUTH-01 (Must-have):** The system shall allow users to register using an email address and password.
+            *   *Acceptance Criteria:* User provides valid email/password; account is created; confirmation email is sent.
+        *   **FR-UPLOAD-01 (Should-have):** The system shall allow users to upload CSV files up to 50MB.
+            *   *Acceptance Criteria:* User selects CSV file < 50MB; file uploads successfully; system provides feedback on success.
+            *   *Error Handling:* If file > 50MB, display "File exceeds size limit". If file is not CSV, display "Invalid file format".
 6.  **Non-Functional Requirements:**
     *   **Performance:** Response times, throughput, scalability.
     *   **Usability:** Ease of use, accessibility standards (e.g., WCAG).
