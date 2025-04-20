@@ -61,9 +61,17 @@ While the exact structure can vary, a comprehensive PRD typically includes:
     *   **Examples:**
         *   **FR-AUTH-01 (Must-have):** The system shall allow users to register using an email address and password.
             *   *Acceptance Criteria:* User provides valid email/password; account is created; confirmation email is sent.
+            *   *Error Handling:* If email format is invalid, display "Invalid email format". If password doesn't meet complexity rules, display specific rule violation.
         *   **FR-UPLOAD-01 (Should-have):** The system shall allow users to upload CSV files up to 50MB.
             *   *Acceptance Criteria:* User selects CSV file < 50MB; file uploads successfully; system provides feedback on success.
             *   *Error Handling:* If file > 50MB, display "File exceeds size limit". If file is not CSV, display "Invalid file format".
+        *   **FR-SEARCH-01 (Must-have):** The system shall allow users to search for items by name.
+            *   *Acceptance Criteria:* User enters text in search bar; system returns list of items matching the text (case-insensitive); search results are displayed within 2 seconds.
+            *   *Error Handling:* If no results found, display "No items match your search".
+        *   **FR-REPORT-01 (Could-have):** The system shall allow administrators to generate a monthly usage report in PDF format.
+            *   *Acceptance Criteria:* Admin navigates to reporting section; selects "Monthly Usage Report"; report is generated and downloaded as PDF. Report includes total logins, features used, and active users.
+        *   **FR-ROLE-01 (Must-have):** The system shall support distinct 'Admin' and 'User' roles with different permissions.
+            *   *Acceptance Criteria:* Admins can access user management and system settings. Regular users cannot access these sections. Functionality X is only available to Admins.
 6.  **Non-Functional Requirements:**
     *   **Performance:** Response times, throughput, scalability.
     *   **Usability:** Ease of use, accessibility standards (e.g., WCAG).
