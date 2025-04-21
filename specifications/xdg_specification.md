@@ -1,7 +1,5 @@
 # XDG Base Directory Specification
 
-Publication Date: 08th May 2021, [Version:]{.imprint-label} Version 0.8
-
 ## Introduction
 
 Various specifications specify files and file formats. This
