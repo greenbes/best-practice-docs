@@ -39,18 +39,21 @@ Below are the primary documentation types, their purposes, and audiences. Each a
 - **Purpose:** Bridges high-level architecture and code; details how the system is actually built.
 - **Content:** Technical designs, class/module diagrams, API specs, configuration, code standards, developer guides, build scripts.
 - **Audience:** Engineers, maintainers, code reviewers.
+- **Reference:** [engineering-implementation-document.md](engineering-implementation-document.md)
 
 ### 4. Quality Assurance Documentation
 
 - **Purpose:** Defines the testing strategy and verification criteria.
 - **Content:** Test plans, test cases, quality criteria, schedules, test data, automation strategy.
 - **Audience:** QA engineers, test managers, developers.
+- **Reference:** [quality-assurance-document.md](quality-assurance-document.md)
 
 ### 5. Project Management & Process Documentation
 
 - **Purpose:** Tracks progress, risks, decisions, and process adherence.
 - **Content:** Implementation plans, risk registers, meeting notes, status reports, retrospectives.
 - **Audience:** Project managers, engineering managers, stakeholders.
+- **Reference:** [project-management-document.md](project-management-document.md)
 
 ---
 
