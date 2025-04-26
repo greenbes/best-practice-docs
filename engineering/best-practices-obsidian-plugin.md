@@ -131,3 +131,140 @@ jobs:
 	- Tag releases properly on GitHub (e.g., v1.0.0).
 	- Minimize plugin size by excluding unnecessary files using .gitignore.
 
+
+# 📜 Golden Reference for Obsidian Plugin Structure and Naming Rules
+
+## 🗂 1. Correct Folder Structure
+
+```
+your-vault/
+└── .obsidian/
+    └── plugins/
+        └── always-close-sidebars/
+            ├── manifest.json
+            ├── main.js
+            ├── main.js.map
+            ├── styles.css (optional)
+```
+
+**Key**:  
+The folder name (`always-close-sidebars`) must match the `"id"` field in your `manifest.json`.
+
+---
+
+## 📄 2. Correct `manifest.json`
+
+```json
+{
+  "id": "always-close-sidebars",
+  "name": "Always Close Sidebars",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "A plugin that always closes the left and right sidebars and hides the Properties view.",
+  "author": "Your Name",
+  "authorUrl": "https://github.com/yourusername",
+  "isDesktopOnly": false
+}
+```
+
+✅ **Notes**:
+- `"id"` **MUST** match the plugin folder name exactly.
+- `"version"` must be **SemVer** format (e.g., `1.0.0`).
+- `"minAppVersion"` must match the earliest Obsidian version you support.
+- `"authorUrl"` is optional but **recommended** for public profiles.
+- `"isDesktopOnly"` is `true` if your plugin doesn't work on mobile (set `false` if it works everywhere).
+
+---
+
+## 📄 3. Correct `package.json`
+
+```json
+{
+  "name": "always-close-sidebars",
+  "version": "1.0.0",
+  "description": "Obsidian plugin to close sidebars and hide Properties view.",
+  "main": "main.js",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "obsidian": "latest"
+  }
+}
+```
+
+✅ **Notes**:
+- `"name"` should match `"id"` from `manifest.json` for consistency (though technically not enforced).
+- `"main"` points to the compiled JavaScript entrypoint (usually `main.js`).
+- `"scripts"` allow quick build commands.
+- `"license"` should be a clear OSI-approved license (MIT is recommended).
+
+---
+
+## 🛠 4. Compilation
+
+- Write your plugin in **TypeScript** (`main.ts`).
+- Compile with `tsc` (TypeScript compiler).
+- Deliver **only**:
+  - `manifest.json`
+  - `main.js`
+  - `main.js.map`
+  - (`styles.css` if you use any styling)
+
+Never deliver `.ts` files to users unless it’s a development version.
+
+---
+
+## 📐 5. Best Practices Checklist
+
+| Rule | Status |
+|:-----|:-------|
+| Folder name = `id` in `manifest.json` | ✅ Required |
+| Use Semantic Versioning in `version` fields | ✅ Required |
+| Keep only runtime files in plugin directory | ✅ Required |
+| `README.md` with clear description and instructions | ✅ Strongly Recommended |
+| `LICENSE` file (MIT recommended) | ✅ Strongly Recommended |
+| Use `tsconfig.json` to enforce strict TypeScript typing | ✅ Recommended |
+| Optional `styles.css` should be minimal and scoped | ✅ Recommended if needed |
+| Use `this.addCommand` to register commands cleanly | ✅ Required |
+| Avoid breaking Obsidian core behavior | ✅ Required |
+| Respect mobile/desktop flags if platform-specific | ✅ Required |
+
+---
+
+## 📋 6. Optional Advanced Best Practices
+
+| Practice | Why |
+|:---------|:----|
+| Add a `CHANGELOG.md` | Track plugin versions and features |
+| Add GitHub Actions for auto-building releases | Save time for public plugins |
+| Include typed API dependencies for Obsidian (`obsidian.d.ts`) | Stronger type checking |
+| Use ESLint and Prettier | Maintain code quality and formatting |
+| Add Plugin Settings (if applicable) | Allow users to customize behavior |
+| Add i18n support (translations) if targeting wide users | Optional but appreciated |
+
+---
+
+# 🎯 Final Summary
+
+| Element | Example |
+|:--------|:--------|
+| Folder name | `always-close-sidebars` |
+| manifest.json `"id"` | `always-close-sidebars` |
+| package.json `"name"` | `always-close-sidebars` |
+| Compile entry | `main.ts` → `main.js` |
+| Output files | `manifest.json`, `main.js`, `main.js.map`, (optional) `styles.css` |
+| License | MIT |
+| Required format compliance | Semantic Versioning, API compatibility, minimal side effects |
+
+---
+
+# ✅ If you follow this reference:
+
+- Your plugin will be **valid**, **load properly**, **pass community plugin reviews**, and **look professional**.
+- You will be ready to submit to the [Obsidian Community Plugins](https://publish.obsidian.md/plugins/02+-+Community+plugin+submission+guide).
+
