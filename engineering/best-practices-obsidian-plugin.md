@@ -134,6 +134,10 @@ jobs:
 
 # 📜 Golden Reference for Obsidian Plugin Structure and Naming Rules
 
+## Error and Debug Information
+
+Obsidian doesn't write out dedicated plugin log files to disk. Instead, errors and diagnostic messages from plugins are logged to the developer console. To view these messages, open Obsidian and then open the developer tools (for example, on macOS you can press Cmd+Option+I) and check the `Console` tab for error details.
+
 ## 🗂 1. Correct Folder Structure
 
 ```
