@@ -148,6 +148,15 @@ except InvalidConfigurationError as e:
     print(f"Error: {e}. Path: {e.config_path}")
 ```
 
+## Libraries
+
+- Use `structlog` for logging
+- Use `pytest` for testing
+- Use `pydantic` for dataclasses
+- Use `sqlalchemy` for database ORM
+- Use `appdirs` to locate OS-specific default directories
+- Use `cfg` to load configuration files
+
 ## Virtual Environments
 
 ### Best Practices for Virtual Environments
@@ -168,68 +177,6 @@ uv install numpy pandas
 uv freeze > requirements.txt
 uv deactivate
 ```
-
-## Reading Configuration Values from a TOML Config File
-
-### Using TOML for Configuration
-
-TOML is a simple and human-readable configuration format that is widely used in Python projects. It is especially useful for maintaining structured and nested configuration data.
-
-### Best Practices
-
-- Store all configurable parameters in a `config.toml` file at the root of your project.
-- Use the `tomllib` module (Python 3.11+) or a third-party library like `toml` to read the configuration.
-- Validate configuration values before using them in your application.
-- Provide default values or fallbacks for optional settings.
-
-### Example Configuration File (`config.toml`)
-
-```toml
-[database]
-host = "localhost"
-port = 5432
-user = "admin"
-password = "password"
-database_name = "myapp_db"
-
-[logging]
-level = "INFO"
-log_file = "logs/app.log"
-```
-
-### Reading Configuration in Python
-
-```python
-# Example:
-import tomllib
-
-# Load configuration from the TOML file
-def load_config(config_file: str) -> dict:
-    try:
-        with open(config_file, 'rb') as f:
-            config = tomllib.load(f)
-        return config
-    except FileNotFoundError:
-        raise FileNotFoundError(f"Configuration file '{config_file}' not found.")
-    except tomllib.TOMLDecodeError as e:
-        raise ValueError(f"Invalid TOML in configuration file: {e}")
-
-# Using the configuration
-config = load_config("config.toml")
-
-# Access specific settings
-db_config = config["database"]
-logging_config = config["logging"]
-
-print(f"Database host: {db_config['host']}")
-print(f"Log level: {logging_config['level']}")
-```
-
-### Advantages
-
-- **Readability**: TOML is easy to write and understand, even for complex configurations.
-- **Structured Data**: Supports nested structures, making it suitable for organizing related settings.
-- **Maintainability**: Separates configuration from code, simplifying updates and deployment.
 
 ## Testing
 
