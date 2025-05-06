@@ -155,7 +155,7 @@ except InvalidConfigurationError as e:
 - Use `pydantic` for dataclasses
 - Use `sqlalchemy` for database ORM
 - Use `appdirs` to locate OS-specific default directories
-- Use `cfg` to load configuration files
+- Use `config` to load configuration files
 
 ## Virtual Environments
 
