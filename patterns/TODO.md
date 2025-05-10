@@ -38,9 +38,9 @@ chance to handle the request
 
 ### Integration Styles
 24. - [ ] Create a summary and dedicated file for the "File Transfer" pattern.
-    - [ ] Read description of File Transfer from https://www.enterpriseintegrationpatterns.com/patterns/messaging/FileTransferIntegration.html
-    - [ ] Load the Wikipedia page for the "File Transfer" software pattern.
-    - [ ] ADD a list item and short summary of the "File Transfer" pattern to `PATTERN_LIST.md` 
+    - [ ] Read description of File Transfer from https://www.enterpriseintegrationpatterns.com/patterns/messaging/FileTransferIntegration.html. Discard everything except the contents of the `pattern` div. 
+    - [ ] CREATE a dedicated file for the "File Transfer" pattern in this directory. Write the text of the `pattern` div to that file.
+    - [ ] ADD a list item to `PATTERN_LIST.md` for the "File Transfer" pattern with a short summary of the pattern and a link to the detailed description file.
 25. - [ ] Read description of Shared Database from https://www.enterpriseintegrationpatterns.com/patterns/messaging/SharedDataBaseIntegration.html
 26. - [ ] Read description of Remote Procedure Invocation from https://www.enterpriseintegrationpatterns.com/patterns/messaging/EncapsulatedSynchronousIntegration.html
 27. - [ ] Read description of Messaging from https://www.enterpriseintegrationpatterns.com/patterns/messaging/Messaging.html
