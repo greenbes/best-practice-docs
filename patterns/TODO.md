@@ -37,81 +37,81 @@ chance to handle the request
 ## Enterprise Integration Patterns
 
 ### Integration Styles
-- [ ] File Transfer
-- [ ] Shared Database
-- [ ] Remote Procedure Invocation
-- [ ] Messaging
+- [ ] Read description of File Transfer from https://www.enterpriseintegrationpatterns.com/patterns/messaging/FileTransferIntegration.html
+- [ ] Read description of Shared Database from https://www.enterpriseintegrationpatterns.com/patterns/messaging/SharedDataBaseIntegration.html
+- [ ] Read description of Remote Procedure Invocation from https://www.enterpriseintegrationpatterns.com/patterns/messaging/EncapsulatedSynchronousIntegration.html
+- [ ] Read description of Messaging from https://www.enterpriseintegrationpatterns.com/patterns/messaging/Messaging.html
 
 ### Messaging Channels
-- [ ] Message Channel
-- [ ] Point-to-Point Channel
-- [ ] Publish-Subscribe Channel
-- [ ] Datatype Channel
-- [ ] Invalid Message Channel
-- [ ] Dead Letter Channel
-- [ ] Guaranteed Delivery
-- [ ] Channel Adapter
-- [ ] Messaging Bridge
-- [ ] Message Bus
+- [ ] Read description of Message Channel from https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageChannel.html
+- [ ] Read description of Point-to-Point Channel from https://www.enterpriseintegrationpatterns.com/patterns/messaging/PointToPointChannel.html
+- [ ] Read description of Publish-Subscribe Channel from https://www.enterpriseintegrationpatterns.com/patterns/messaging/PublishSubscribeChannel.html
+- [ ] Read description of Datatype Channel from https://www.enterpriseintegrationpatterns.com/patterns/messaging/DatatypeChannel.html
+- [ ] Read description of Invalid Message Channel from https://www.enterpriseintegrationpatterns.com/patterns/messaging/InvalidMessageChannel.html
+- [ ] Read description of Dead Letter Channel from https://www.enterpriseintegrationpatterns.com/patterns/messaging/DeadLetterChannel.html
+- [ ] Read description of Guaranteed Delivery from https://www.enterpriseintegrationpatterns.com/patterns/messaging/GuaranteedMessaging.html
+- [ ] Read description of Channel Adapter from https://www.enterpriseintegrationpatterns.com/patterns/messaging/ChannelAdapter.html
+- [ ] Read description of Messaging Bridge from https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingBridge.html
+- [ ] Read description of Message Bus from https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageBus.html
 
 ### Message Construction
-- [ ] Message
-- [ ] Command Message
-- [ ] Document Message
-- [ ] Event Message
-- [ ] Request-Reply
-- [ ] Return Address
-- [ ] Correlation Identifier
-- [ ] Message Sequence
-- [ ] Message Expiration
-- [ ] Format Indicator
+- [ ] Read description of Message from https://www.enterpriseintegrationpatterns.com/patterns/messaging/Message.html
+- [ ] Read description of Command Message from https://www.enterpriseintegrationpatterns.com/patterns/messaging/CommandMessage.html
+- [ ] Read description of Document Message from https://www.enterpriseintegrationpatterns.com/patterns/messaging/DocumentMessage.html
+- [ ] Read description of Event Message from https://www.enterpriseintegrationpatterns.com/patterns/messaging/EventMessage.html
+- [ ] Read description of Request-Reply from https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html
+- [ ] Read description of Return Address from https://www.enterpriseintegrationpatterns.com/patterns/messaging/ReturnAddress.html
+- [ ] Read description of Correlation Identifier from https://www.enterpriseintegrationpatterns.com/patterns/messaging/CorrelationIdentifier.html
+- [ ] Read description of Message Sequence from https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageSequence.html
+- [ ] Read description of Message Expiration from https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageExpiration.html
+- [ ] Read description of Format Indicator from https://www.enterpriseintegrationpatterns.com/patterns/messaging/FormatIndicator.html
 
 ### Message Routing
-- [ ] Pipes-and-Filters
-- [ ] Message Router
-- [ ] Content-based Router
-- [ ] Message Filter
-- [ ] Dynamic Router
-- [ ] Recipient List
-- [ ] Splitter
-- [ ] Aggregator
-- [ ] Resequencer
-- [ ] Composed Msg. Processor
-- [ ] Scatter-Gather
-- [ ] Routing Slip
-- [ ] Process Manager
-- [ ] Message Broker
+- [ ] Read description of Pipes-and-Filters from https://www.enterpriseintegrationpatterns.com/patterns/messaging/PipesAndFilters.html
+- [ ] Read description of Message Router from https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageRouter.html
+- [ ] Read description of Content-based Router from https://www.enterpriseintegrationpatterns.com/patterns/messaging/ContentBasedRouter.html
+- [ ] Read description of Message Filter from https://www.enterpriseintegrationpatterns.com/patterns/messaging/Filter.html
+- [ ] Read description of Dynamic Router from https://www.enterpriseintegrationpatterns.com/patterns/messaging/DynamicRouter.html
+- [ ] Read description of Recipient List from https://www.enterpriseintegrationpatterns.com/patterns/messaging/RecipientList.html
+- [ ] Read description of Splitter from https://www.enterpriseintegrationpatterns.com/patterns/messaging/Sequencer.html
+- [ ] Read description of Aggregator from https://www.enterpriseintegrationpatterns.com/patterns/messaging/Aggregator.html
+- [ ] Read description of Resequencer from https://www.enterpriseintegrationpatterns.com/patterns/messaging/Resequencer.html
+- [ ] Read description of Composed Msg. Processor from https://www.enterpriseintegrationpatterns.com/patterns/messaging/DistributionAggregate.html
+- [ ] Read description of Scatter-Gather from https://www.enterpriseintegrationpatterns.com/patterns/messaging/BroadcastAggregate.html
+- [ ] Read description of Routing Slip from https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html
+- [ ] Read description of Process Manager from https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html
+- [ ] Read description of Message Broker from https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageBroker.html
 
 ### Message Transformation
-- [ ] Message Translator
-- [ ] Envelope Wrapper
-- [ ] Content Enricher
-- [ ] Content Filter
-- [ ] Claim Check
-- [ ] Normalizer
-- [ ] Canonical Data Model
+- [ ] Read description of Message Translator from https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageTranslator.html
+- [ ] Read description of Envelope Wrapper from https://www.enterpriseintegrationpatterns.com/patterns/messaging/EnvelopeWrapper.html
+- [ ] Read description of Content Enricher from https://www.enterpriseintegrationpatterns.com/patterns/messaging/DataEnricher.html
+- [ ] Read description of Content Filter from https://www.enterpriseintegrationpatterns.com/patterns/messaging/ContentFilter.html
+- [ ] Read description of Claim Check from https://www.enterpriseintegrationpatterns.com/patterns/messaging/StoreInLibrary.html
+- [ ] Read description of Normalizer from https://www.enterpriseintegrationpatterns.com/patterns/messaging/Normalizer.html
+- [ ] Read description of Canonical Data Model from https://www.enterpriseintegrationpatterns.com/patterns/messaging/CanonicalDataModel.html
 
 ### Messaging Endpoints
-- [ ] Message Endpoint
-- [ ] Messaging Gateway
-- [ ] Messaging Mapper
-- [ ] Transactional Client
-- [ ] Polling Consumer
-- [ ] Event-driven Consumer
-- [ ] Competing Consumers
-- [ ] Message Dispatcher
-- [ ] Selective Consumer
-- [ ] Durable Subscriber
-- [ ] Idempotent Receiver
-- [ ] Service Activator
+- [ ] Read description of Message Endpoint from https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageEndpoint.html
+- [ ] Read description of Messaging Gateway from https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingGateway.html
+- [ ] Read description of Messaging Mapper from https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingMapper.html
+- [ ] Read description of Transactional Client from https://www.enterpriseintegrationpatterns.com/patterns/messaging/TransactionalClient.html
+- [ ] Read description of Polling Consumer from https://www.enterpriseintegrationpatterns.com/patterns/messaging/PollingConsumer.html
+- [ ] Read description of Event-driven Consumer from https://www.enterpriseintegrationpatterns.com/patterns/messaging/EventDrivenConsumer.html
+- [ ] Read description of Competing Consumers from https://www.enterpriseintegrationpatterns.com/patterns/messaging/CompetingConsumers.html
+- [ ] Read description of Message Dispatcher from https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageDispatcher.html
+- [ ] Read description of Selective Consumer from https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageSelector.html
+- [ ] Read description of Durable Subscriber from https://www.enterpriseintegrationpatterns.com/patterns/messaging/DurableSubscription.html
+- [ ] Read description of Idempotent Receiver from https://www.enterpriseintegrationpatterns.com/patterns/messaging/IdempotentReceiver.html
+- [ ] Read description of Service Activator from https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingAdapter.html
 
 ### System Management
-- [ ] Control Bus
-- [ ] Detour
-- [ ] Wire Tap
-- [ ] Message History
-- [ ] Message Store
-- [ ] Smart Proxy
-- [ ] Test Message
-- [ ] Channel Purger
+- [ ] Read description of Control Bus from https://www.enterpriseintegrationpatterns.com/patterns/messaging/ControlBus.html
+- [ ] Read description of Detour from https://www.enterpriseintegrationpatterns.com/patterns/messaging/Detour.html
+- [ ] Read description of Wire Tap from https://www.enterpriseintegrationpatterns.com/patterns/messaging/WireTap.html
+- [ ] Read description of Message History from https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageHistory.html
+- [ ] Read description of Message Store from https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageStore.html
+- [ ] Read description of Smart Proxy from https://www.enterpriseintegrationpatterns.com/patterns/messaging/SmartProxy.html
+- [ ] Read description of Test Message from https://www.enterpriseintegrationpatterns.com/patterns/messaging/TestMessage.html
+- [ ] Read description of Channel Purger from https://www.enterpriseintegrationpatterns.com/patterns/messaging/ChannelPurger.html
 
