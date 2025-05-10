@@ -37,10 +37,6 @@ from mypackage import mymodule
 - Names should be descriptive and meaningful.
 - Avoid single-letter names except for counters or iterators.
 - Use English names for all identifiers.
-- Each `Class` definition should be in a separate file
-- Prefer `map`, `reduce`, and `filter` for list processing
-- Prefer `itertools` iteration and looping instead of python comprehensions
-- The maximum file length is 500 lines. If a file is longer than 500 lines, refactor it and consider splitting into multiple files
 
 ### Specific Conventions
 
@@ -61,6 +57,8 @@ from mypackage import mymodule
 - Use descriptive names that indicate what the function does.
 - Include type hints for parameters and return values.
 - Where possible, adopt a `functional programming` design philosophy where functions are idempotent and side effects are handled separately 
+- Prefer `map`, `reduce`, and `filter` for list processing
+- Prefer `itertools` iteration and looping instead of python comprehensions
 
 ```python
 # Example:
@@ -86,6 +84,7 @@ def calculate_average(numbers: list[float]) -> float:
 
 ### Class Structure
 
+- Each `Class` definition should be in a separate file
 - Use class attributes for class-wide constants.
 - Define `__init__` method first.
 - Group methods by functionality.
@@ -162,26 +161,27 @@ except InvalidConfigurationError as e:
 - Use `sqlalchemy` for database ORM
 - Use `appdirs` to locate OS-specific default directories
 - Use `config` to load configuration files
+- Use `mypy` for static testing
 
 ## Virtual Environments
 
 ### Best Practices for Virtual Environments
 
 - Use `uv` to manage virtual environments and project dependencies.
-- Create a new virtual environment with `uv venv create <env_name>`.
-- Activate the virtual environment with `uv activate <env_name>`.
-- Install project dependencies within the virtual environment using `uv install`.
-- Deactivate the virtual environment with `uv deactivate`.
+- To create a new virtual environment, run `uv venv` in the project root.
+    - If a directory named `.venv` is present in the project root, this is not necessary
+- Activate the virtual environment with by running `source .venv/bin/activate` in the shell.
+- Install project dependencies within the virtual environment using `uv pip install <module_name>`.
 - Export dependencies to a `requirements.txt` file using `uv freeze`.
 - Install dependencies from `requirements.txt` with `uv install -r requirements.txt`.
 
 ```bash
-# Example:
-uv venv create myenv
-uv activate myenv
-uv install numpy pandas
+# Example: Run these commands in the project root
+uv venv 
+source .venv/bin/activate
+uv pip install pydantic structlog
 uv freeze > requirements.txt
-uv deactivate
+deactivate
 ```
 
 ## Testing
@@ -232,7 +232,7 @@ def test_calculate_average_with_valid_input():
 
 ### Best Practices for Logging
 
-- Use Python's built-in `logging` module instead of print statements.
+- Use the `structlog` module for logging instead of print statements.
 - Configure logging levels appropriately:
     - `DEBUG`: Detailed information, for diagnosing issues.
     - `INFO`: Confirmation that things are working as expected.
@@ -251,21 +251,7 @@ def test_calculate_average_with_valid_input():
 - Avoid logging sensitive information such as passwords, API keys, personally identifiable information (PII), or other confidential data. For example, ensure logs do not include fields like `password="mysecretpassword"` or `credit_card="1234-5678-9012-3456"`. Mask or omit sensitive data where necessary to maintain security and compliance.
 - Use external tools like `Sentry` or `Logstash` for error tracking and centralized logging.
 
-```python
-# Example:
-import logging
-
-logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-
-logger = logging.getLogger(__name__)
-
-logger.debug("This is a debug message")
-logger.info("This is an info message")
-logger.warning("This is a warning message")
-logger.error("This is an error message")
-logger.critical("This is a critical message")
-```
+- [ ] ADD A STRUCTLOG EXAMPLE HERE
 
 ### Advantages of Logging and Tracing
 
@@ -314,10 +300,11 @@ if __name__ == "__main__":
     main()
 ```
 
-### Best Practices
+### General Best Practices
 
 - Use strict type checking.
 - Write custom exceptions that provide meaningful information to the developer.
 - Document functions, including parameters and return values.
-
+- The maximum file length is 500 lines. If a file is longer than 500 lines, refactor 
+  it and consider splitting into multiple files.
 
