@@ -32,5 +32,86 @@ chance to handle the request
 - [ ] State: Allow an object to alter its behavior when its internal state changes. The object will appear to change its class
 - [ ] Strategy: Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it
 - [ ] Template Method: Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure
-- [ ] Visitor: Represent an operation to be performed on the elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates
+- [ ] Visitor: Represent an operation to be performed on the elements of an object structure. Visitor lets you define a new operation without changing the classes of theelements on which it operates
+
+## Enterprise Integration Patterns
+
+### Integration Styles
+- [ ] File Transfer
+- [ ] Shared Database
+- [ ] Remote Procedure Invocation
+- [ ] Messaging
+
+### Messaging Channels
+- [ ] Message Channel
+- [ ] Point-to-Point Channel
+- [ ] Publish-Subscribe Channel
+- [ ] Datatype Channel
+- [ ] Invalid Message Channel
+- [ ] Dead Letter Channel
+- [ ] Guaranteed Delivery
+- [ ] Channel Adapter
+- [ ] Messaging Bridge
+- [ ] Message Bus
+
+### Message Construction
+- [ ] Message
+- [ ] Command Message
+- [ ] Document Message
+- [ ] Event Message
+- [ ] Request-Reply
+- [ ] Return Address
+- [ ] Correlation Identifier
+- [ ] Message Sequence
+- [ ] Message Expiration
+- [ ] Format Indicator
+
+### Message Routing
+- [ ] Pipes-and-Filters
+- [ ] Message Router
+- [ ] Content-based Router
+- [ ] Message Filter
+- [ ] Dynamic Router
+- [ ] Recipient List
+- [ ] Splitter
+- [ ] Aggregator
+- [ ] Resequencer
+- [ ] Composed Msg. Processor
+- [ ] Scatter-Gather
+- [ ] Routing Slip
+- [ ] Process Manager
+- [ ] Message Broker
+
+### Message Transformation
+- [ ] Message Translator
+- [ ] Envelope Wrapper
+- [ ] Content Enricher
+- [ ] Content Filter
+- [ ] Claim Check
+- [ ] Normalizer
+- [ ] Canonical Data Model
+
+### Messaging Endpoints
+- [ ] Message Endpoint
+- [ ] Messaging Gateway
+- [ ] Messaging Mapper
+- [ ] Transactional Client
+- [ ] Polling Consumer
+- [ ] Event-driven Consumer
+- [ ] Competing Consumers
+- [ ] Message Dispatcher
+- [ ] Selective Consumer
+- [ ] Durable Subscriber
+- [ ] Idempotent Receiver
+- [ ] Service Activator
+
+### System Management
+- [ ] Control Bus
+- [ ] Detour
+- [ ] Wire Tap
+- [ ] Message History
+- [ ] Message Store
+- [ ] Smart Proxy
+- [ ] Test Message
+- [ ] Channel Purger
 
