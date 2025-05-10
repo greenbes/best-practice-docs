@@ -1,5 +1,17 @@
-.aider*
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
 .env
-.DS_Store
+
 *.old
 *.sav
+.venv
+
+.aider*
+.DS_Store
