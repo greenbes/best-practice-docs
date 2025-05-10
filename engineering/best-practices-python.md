@@ -114,7 +114,7 @@ class Person:
 
 - Use try/except blocks to handle specific exceptions.
 - Avoid bare except clauses.
-- Use context managers (with statements) when applicable.
+- Use context managers (`with` statements) when applicable.
 - Raise exceptions early, handle them late.
 - Include error messages that are helpful for debugging.
 
@@ -170,7 +170,7 @@ except InvalidConfigurationError as e:
 - Use `uv` to manage virtual environments and project dependencies.
 - To create a new virtual environment, run `uv venv` in the project root.
     - If a directory named `.venv` is present in the project root, this is not necessary
-- Activate the virtual environment with by running `source .venv/bin/activate` in the shell.
+- Activate the virtual environment by running `source .venv/bin/activate` in the shell.
 - Install project dependencies within the virtual environment using `uv pip install <module_name>`.
 - Export dependencies to a `requirements.txt` file using `uv freeze`.
 - Install dependencies from `requirements.txt` with `uv install -r requirements.txt`.
