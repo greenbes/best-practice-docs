@@ -37,6 +37,10 @@ from mypackage import mymodule
 - Names should be descriptive and meaningful.
 - Avoid single-letter names except for counters or iterators.
 - Use English names for all identifiers.
+- Each `Class` definition should be in a separate file
+- Prefer `map`, `reduce`, and `filter` for list processing
+- Prefer `itertools` iteration and looping instead of python comprehensions
+- The maximum file length is 500 lines. If a file is longer than 500 lines, refactor it and consider splitting into multiple files
 
 ### Specific Conventions
 
@@ -56,6 +60,7 @@ from mypackage import mymodule
 - Keep functions short and focused (typically under 20 lines).
 - Use descriptive names that indicate what the function does.
 - Include type hints for parameters and return values.
+- Where possible, adopt a `functional programming` design philosophy where functions are idempotent and side effects are handled separately 
 
 ```python
 # Example:
@@ -150,6 +155,7 @@ except InvalidConfigurationError as e:
 
 ## Libraries
 
+- Use `itertools` for efficient iterators and looping
 - Use `structlog` for logging
 - Use `pytest` for testing
 - Use `pydantic` for dataclasses
