@@ -1,0 +1,153 @@
+#+TITLE: Abstract Factory Pattern
+* Abstract Factory Pattern :swpattern:
+:PROPERTIES:
+:END:
+
+** Overview
+
+The =Abstract Factory= pattern is a creational design pattern that provides an interface for creating families of related or dependent objects without specifying their concrete classes. This pattern is particularly useful when a system should be independent of how its objects are created, composed, and represented. It allows for the encapsulation of object creation logic, making it easier to introduce new variants of objects without altering existing code.
+
+** Intent
+
+- Provide a way to create families of related or dependent objects.
+- Allow for easy interchangeability of object families.
+- Promote loose coupling between the client and the different product implementations.
+- Facilitate the addition of new object types or variations without modifying existing client code.
+
+** Applicability
+
+- When a system should be independent of how its products are created or composed.
+- When you want to provide a library of products that can work together, promoting product compatibility.
+- When the creation process of objects is complex or requires specific configuration.
+- When the system needs to support multiple product variants.
+
+** Structure
+
+A typical implementation of the Abstract Factory pattern involves:
+
+- An =AbstractFactory= interface that declares creation methods for different types of objects.
+- Concrete factories implementing the =AbstractFactory= interface, providing implementation of the creation methods.
+- Abstract product interfaces or classes representing the components of the system.
+- Concrete product classes implementing the product interfaces for specific object types.
+- Client code that relies on the =AbstractFactory= interface to create objects.
+
+** Example UML components
+
+- Abstract Factory
+      - Declares creation methods for abstract products.
+- Concrete Factory
+      - Implements the methods to create specific product variants.
+- Abstract Product
+      - Defines the interface for products created by the factory.
+- Concrete Product
+      - Implements the abstract product interface.
+- Client
+      - Uses the abstract factory to create products without knowing their concrete classes.
+
+** Participants
+
+- Abstract Factory: The interface that declares a set of creation methods for producing abstract products.
+- Concrete Factory: The class that implements the creation methods and produces concrete product instances.
+- Abstract Product: The interface for a family of products that the factory creates.
+- Concrete Product: The classes that implement the abstract product interface.
+- Client: The class that uses the abstract factory and its products.
+
+** Benefits
+
+- Flexibility: The system can be easily extended to accommodate new product variants without modifying existing code.
+- Improved code organization: The separation of creation logic enhances maintainability and reduces the risk of errors.
+- Independence: Client code does not need to know about the concrete classes of the products, promoting loose coupling.
+
+** Drawbacks
+
+- Increased complexity: The pattern requires a more complex structure with multiple interfaces and classes.
+- Overhead: For simple systems, the use of an Abstract Factory may be unnecessary and can complicate the design.
+
+** Example Scenario
+
+Consider a GUI toolkit that provides buttons, checkboxes, and text fields. In this scenario, an Abstract Factory could be used to create these UI components in a consistent way. Different concrete factories could implement themes such as "Windows" or "MacOS", enabling the client to produce the appropriate buttons, checkboxes, and text fields seamlessly according to the system's theme.
+
+** Example Python Source Code
+
+This example illustrates how the =AbstractFactory= pattern generates different types of cars and their associated parts.
+
+#+begin_src python
+from abc import ABC, abstractmethod
+
+# Abstract Factory
+class CarFactory(ABC):
+    @abstractmethod
+    def create_car(self):
+        pass
+
+    @abstractmethod
+    def create_engine(self):
+        pass
+
+
+# Concrete Factory for Electric Cars
+class ElectricCarFactory(CarFactory):
+    def create_car(self):
+        return ElectricCar()
+
+    def create_engine(self):
+        return ElectricEngine()
+
+
+# Concrete Factory for Gas Cars
+class GasCarFactory(CarFactory):
+    def create_car(self):
+        return GasCar()
+
+    def create_engine(self):
+        return GasEngine()
+
+
+# Abstract Product interfaces
+class Car(ABC):
+    pass
+
+
+class Engine(ABC):
+    pass
+
+
+# Concrete Products
+class ElectricCar(Car):
+    def __str__(self):
+        return "Electric Car"
+
+
+class ElectricEngine(Engine):
+    def __str__(self):
+        return "Electric Engine"
+
+
+class GasCar(Car):
+    def __str__(self):
+        return "Gas Car"
+
+
+class GasEngine(Engine):
+    def __str__(self):
+        return "Gas Engine"
+
+
+# Client code
+def client_code(factory: CarFactory):
+    car = factory.create_car()
+    engine = factory.create_engine()
+    print(f"Created {car} with {engine}")
+
+
+# Usage
+electric_factory = ElectricCarFactory()
+client_code(electric_factory)
+
+gas_factory = GasCarFactory()
+client_code(gas_factory)
+#+end_src
+
+** Conclusion
+
+The Abstract Factory pattern is a powerful design pattern that allows developers to create families of related or dependent objects without specifying their concrete classes. This pattern encourages loose coupling, promoting easier maintenance and scalability of applications. By utilizing the Abstract Factory pattern, developers can accommodate new object types and variants while ensuring that the client code remains decoupled from the specifics of object instantiation.
