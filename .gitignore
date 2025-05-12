@@ -15,3 +15,6 @@ wheels/
 
 .aider*
 .DS_Store
+
+# Emacs temporary files
+*~
