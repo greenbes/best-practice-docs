@@ -260,6 +260,12 @@ my-python-app/
 │       ├── config.py        # Manage configuration settings
 │       ├── models           # Data models
 │       └── ...
+├── specs/                               # Program requirements and specifications
+│   ├── FEATURES_TO_BE_DESIGNED.md`      # Master document listing program features 
+│   ├── IMPLEMENT-TASK-001.md            # Implementation details for task 001
+│   ├── IMPLEMENT-TASK-002.md            # Implementation details for task 002 
+│   ├── IMPLEMENT-TASK-003.md            # Implementation details for task 003 
+│   └── ...
 ├── tests/               # Test suite
 │   ├── __init__.py
 │   ├── test_main.py
