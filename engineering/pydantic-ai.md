@@ -172,6 +172,14 @@ PydanticAI's dependency injection system provides a clean way to manage external
 
 ### Basic Dependency Structure
 
+**Purpose**: This pattern defines the foundational dependency structure using protocols for type safety and dataclasses for clean organization.
+
+**When to use**: 
+- Starting a new PydanticAI project
+- When you need clear separation between interface and implementation
+- For applications requiring multiple external services (database, cache, logging, metrics)
+- When type safety and IDE support are priorities
+
 ```python
 from dataclasses import dataclass
 from typing import Protocol
@@ -196,6 +204,15 @@ class CacheService(Protocol):
 ```
 
 ### Agent with Dependency Injection
+
+**Purpose**: Demonstrates how to create agents that leverage dependency injection for dynamic system prompts, caching, logging, and metrics collection.
+
+**When to use**:
+- Building production agents that need external data sources
+- When agents require configuration-driven behavior
+- For applications needing comprehensive observability (logging, metrics)
+- When implementing caching strategies to reduce API costs
+- For agents that need to persist results or maintain audit trails
 
 ```python
 from pydantic_ai import Agent, RunContext
@@ -278,6 +295,15 @@ async def save_analysis_result(
 
 ### Environment-Specific Dependencies
 
+**Purpose**: Shows how to create different dependency configurations for development, staging, and production environments using the factory pattern.
+
+**When to use**:
+- Applications deployed across multiple environments with different infrastructure
+- When development needs lightweight dependencies (SQLite, in-memory cache) but production requires robust services (PostgreSQL, Redis)
+- For maintaining environment-specific configurations without code changes
+- When implementing CI/CD pipelines that automatically adapt to deployment targets
+- For applications requiring different logging levels, database connections, or external service endpoints per environment
+
 ```python
 from abc import ABC, abstractmethod
 from typing import Union
@@ -352,6 +378,15 @@ async def main():
 
 ### Multi-Tenant Dependencies
 
+**Purpose**: Demonstrates how to implement tenant-isolated dependencies that automatically scope data access and maintain per-tenant configurations.
+
+**When to use**:
+- SaaS applications serving multiple customers with isolated data
+- When each tenant requires different configurations (branding, compliance, features)
+- For applications needing automatic data scoping to prevent cross-tenant data leaks
+- When implementing per-tenant customizations (industry-specific prompts, workflows)
+- For enterprise applications with multiple organizational units requiring isolation
+
 ```python
 @dataclass
 class TenantDependencies:
@@ -420,6 +455,15 @@ async def process_tenant_request(tenant_id: str, request: str):
 
 ### Testing with Dependency Injection
 
+**Purpose**: Shows how to create testable agents using mock dependencies, enabling comprehensive unit testing without external service dependencies.
+
+**When to use**:
+- Writing unit tests for agents without requiring real databases, APIs, or external services
+- When implementing test-driven development (TDD) for AI applications
+- For creating fast, reliable test suites that can run in CI/CD pipelines
+- When testing error conditions and edge cases that are difficult to reproduce with real services
+- For validating agent behavior under different dependency states (cache hits/misses, database failures)
+
 ```python
 import pytest
 from unittest.mock import AsyncMock, Mock
@@ -479,6 +523,15 @@ async def test_dependency_failure_handling():
 ```
 
 ### Dependency Composition Patterns
+
+**Purpose**: Illustrates advanced dependency management using generic containers with lazy initialization, lifecycle management, and property-based access patterns.
+
+**When to use**:
+- Large applications with complex dependency graphs requiring lifecycle management
+- When dependencies have expensive initialization that should be deferred until needed
+- For applications requiring automatic resource cleanup (database connections, file handles)
+- When implementing dependency injection containers similar to Spring or .NET Core patterns
+- For microservices architectures where different services may need different dependency subsets
 
 ```python
 from typing import TypeVar, Generic
@@ -704,6 +757,15 @@ graph TD
 
 ### Data Analysis Agent with Validation
 
+**Purpose**: Demonstrates a production-ready data analysis agent with comprehensive input/output validation, retry logic with exponential backoff, and confidence-based re-attempts.
+
+**When to use**:
+- Financial or business intelligence applications requiring high accuracy
+- When working with expensive LLM calls that need validation before acceptance
+- For applications where confidence scores determine whether results are actionable
+- When implementing robust error handling for data pipeline failures
+- For scenarios requiring audit trails and detailed logging of analysis attempts
+
 ```python
 from pydantic_ai import Agent, RunContext
 from pydantic import BaseModel, Field, validator
@@ -795,6 +857,15 @@ async def analyze_with_retry(request: AnalysisRequest, deps: Dependencies, max_r
 ```
 
 ### Customer Support Agent with Escalation
+
+**Purpose**: Shows a customer support agent with automatic escalation logic, structured response categories, and graceful fallback handling for service failures.
+
+**When to use**:
+- Customer service applications requiring automated first-line support
+- When implementing tiered support systems with automatic escalation triggers
+- For applications needing structured response categorization and routing
+- When building resilient systems that gracefully handle service outages
+- For scenarios requiring audit trails of customer interactions and escalation decisions
 
 ```python
 from enum import Enum
@@ -904,6 +975,15 @@ async def handle_support_request(request: SupportRequest, deps: SupportDependenc
 ```
 
 ### Financial Analysis Agent with Circuit Breaker
+
+**Purpose**: Illustrates a financial analysis agent implementing the circuit breaker pattern to handle external service failures, with consistency validation and linear backoff retry strategy.
+
+**When to use**:
+- Financial applications requiring high reliability and fault tolerance
+- When integrating with external APIs that may experience intermittent failures
+- For systems where repeated failures should trigger protective measures
+- When implementing investment or trading systems requiring consistency checks
+- For applications needing graceful degradation during service outages
 
 ```python
 from dataclasses import dataclass
@@ -1025,6 +1105,15 @@ async def analyze_investment(symbol: str, deps: FinancialDependencies, max_retri
 ```
 
 ### Testing Example Agents
+
+**Purpose**: Provides unit testing examples for the agent implementations, demonstrating how to test validation logic, escalation behavior, and error handling scenarios.
+
+**When to use**:
+- Validating agent behavior in automated test suites
+- When implementing continuous integration pipelines for AI applications
+- For testing complex business logic embedded in agent workflows
+- When verifying error handling and edge case behavior
+- For ensuring agent responses meet expected quality and structure requirements
 
 ```python
 import pytest
