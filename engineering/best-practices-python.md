@@ -77,6 +77,8 @@ from mypackage import mymodule
 
 ### Function Design
 
+- Make all non-trivial APIs keyword-only
+- Use named parameters
 - Functions should do one thing well.
 - Keep functions short and focused (typically under 20 lines).
 - Use descriptive names that indicate what the function does.
@@ -256,8 +258,10 @@ my-python-app/
 │   └── my_python_app/       # Application package
 │       ├── __init__.py      # Makes it a package
 │       ├── __main__.py      # Entry point of the application if called as python -m
-│       ├── cli.py           # Command line interface, command line argument parsing, etc
+│       ├── args.py          # Command line argument parsing
+│       ├── cli.py           # Entry point for command line operation
 │       ├── config.py        # Manage configuration settings
+│       ├── mcp.py           # Entry point for Model Context Protocol (MCP) operation
 │       ├── models           # Data models
 │       └── ...
 ├── specs/                               # Program requirements and specifications
@@ -532,6 +536,7 @@ assert transform(3) == 8
 - **dataclasses**: Data classes with less boilerplate
 - **black**: Automatic code formatter (alternative to ruff format)
 - **httpx**: Fully featured HTTP client for Python
+- **mcp**: Model Context Protocol server
 
 ## Dependencies Management
 
